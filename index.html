@@ -10,7 +10,7 @@
     <!-- Angular CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
-<body ng-app="weatherApp" ng-controller="mainController">
+<body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
     <h3>Enter Location</h3>
     <input ng-model="location"/>
     <h3 ng-bind="location"></h3>

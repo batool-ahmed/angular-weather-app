@@ -16,7 +16,11 @@
     <h3 ng-bind="location"></h3>
 
     <button ng-click="getWeather()">Get Current Weather</button>
-    <p ng-bind="weather"></p>
+    <ul>
+        <li ng-repeat="forecast in weather.list">
+            {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
+        </li>
+    </ul>    
     <p ng-bind="error"></p>
     <script src="main.js"></script>
 </body>

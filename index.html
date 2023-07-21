@@ -17,7 +17,7 @@
 
     <button ng-click="getWeather()">Get Current Weather</button>
     <ul>
-        <li ng-repeat="forecast in weather.list">
+        <li ng-repeat="forecast in weatherFiveDays">
             {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
         </li>
     </ul>    

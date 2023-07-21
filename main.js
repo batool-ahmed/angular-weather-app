@@ -10,6 +10,7 @@ app.controller("mainController", function ($scope, $http){
             $scope.weather = response.data;
             console.log($scope.weather)
         }).catch(function (error) {
+            $scope.error = 'Enter correct city name'
             console.error(error);
         });
     };

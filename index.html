@@ -7,21 +7,32 @@
     
     <title>Weather App</title>
 
+    <link rel="stylesheet" href="style.css">
+
     <!-- Angular CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 </head>
 <body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
-    <h3>Enter Location</h3>
-    <input ng-model="location"/>
-    <h3 ng-bind="location"></h3>
+    <div class="center">
+        <h3>Enter Location</h3>
+        <input ng-model="location"/>
+        <h3 ng-bind="location"></h3>
 
-    <button ng-click="getWeather()">Get Current Weather</button>
-    <ul>
-        <li ng-repeat="forecast in weatherFiveDays">
-            {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
-        </li>
-    </ul>    
-    <p ng-bind="error"></p>
+        <button ng-click="getWeather()">Get Current Weather</button>
+        <ul class="no-bullets">
+            <!-- <li ng-repeat="forecast in weatherFiveDays">
+                {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
+            </li> -->
+
+            <li ng-repeat="forecast in weatherNextFive">
+                <div>
+                    <h3>{{ forecast.dt_txt }}</h3>
+                    <p>{{ forecast.main.temp }}</p> 
+                </div>
+            </li>
+        </ul>    
+        <p ng-bind="error"></p>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>

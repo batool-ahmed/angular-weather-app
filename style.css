@@ -1,0 +1,15 @@
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+ul.no-bullets {
+    list-style-type: none;
+}
+
+ul.no-bullets li {
+    display: inline-block; /* or use display: inline; for inline elements */
+    margin: 5px; /* Add some margin between list items if desired */
+}

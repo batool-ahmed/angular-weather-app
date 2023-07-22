@@ -13,14 +13,14 @@ app.controller("mainController", function ($scope, $http) {
             const weather = response.data.list;
 
             // 5 days weather after every 6 hours
-            $scope.weatherFiveDays = [];
+            $scope.weatherNextFive = [];
             $scope.temperatures = []; 
 
-            for (var i = 0; i < weather.length; i += 2) {
-                $scope.weatherFiveDays.push(weather[i]);
+            for (var i = 2; i < 10; i += 2) {
+                $scope.weatherNextFive.push(weather[i]);
                 $scope.temperatures.push(weather[i].main.temp)
             }
-            console.log($scope.weatherFiveDays);
+            console.log($scope.weatherNextFive);
             console.log($scope.temperatures);
         }).catch(function (error) {
             $scope.error = 'Enter correct city name';

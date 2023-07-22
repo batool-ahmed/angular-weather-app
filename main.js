@@ -4,23 +4,44 @@ app.controller("mainController", function ($scope, $http) {
     $scope.location = 'Karachi';
 
     $scope.getWeather = function () {
-        // TODO: Add current weather separately
 
         const API_KEY = '4aa6e82d736f430436f7e2e558f8a23b';
         var apiCall = "https://api.openweathermap.org/data/2.5/forecast?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
+        var currentWeatherApiCall = "https://api.openweathermap.org/data/2.5/weather?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
+
+        $http.get(currentWeatherApiCall).then(function (response) {
+            const currentWeather = response.data;
+            console.log(currentWeather);
+            
+            $scope.currentWeather = {
+                temperature: currentWeather.main.temp,
+                description: currentWeather.weather[0].description,
+                icon: currentWeather.weather[0].icon,
+            };
+        }).catch(function (error) {
+            console.error(error);
+        });
+
 
         $http.get(apiCall).then(function (response) {
             const weather = response.data.list;
-
-            // 5 days weather after every 6 hours
-            $scope.weatherNextFive = [];
+            console.log(weather)
+            // 4 weather updates after every 6 hours
+            $scope.weatherNextFour = [];
             $scope.temperatures = []; 
 
             for (var i = 2; i < 10; i += 2) {
-                $scope.weatherNextFive.push(weather[i]);
+                $scope.weatherNextFour.push(
+                    {
+                        date: weather[i].dt_txt.slice(0,11),
+                        time: weather[i].dt_txt.slice(11,13),
+                        icon: weather[i].weather[0].icon,
+                        description: weather[i].weather[0].description,
+                        temperature: weather[i].main.temp,
+                    });
                 $scope.temperatures.push(weather[i].main.temp)
             }
-            console.log($scope.weatherNextFive);
+            console.log($scope.weatherNextFour);
             console.log($scope.temperatures);
         }).catch(function (error) {
             $scope.error = 'Enter correct city name';

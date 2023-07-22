@@ -1,47 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <title>Weather App</title>
-
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Angular CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-</head>
-<body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
-    <div class="center content-div">
-        <h3>Enter Location</h3>
-        <input ng-model="location"/>
-        <h3 ng-bind="location"></h3>
-
-        <button ng-click="getWeather()">Get Current Weather</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         
-        <div>
-            <p>{{ currentWeather.temperature }}°C</p>
-            <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}">
-            <p>{{ currentWeather.description }}</p>
-        </div>
+        <title>Weather App</title>
 
-        <ul class="no-bullets">
-            <!-- <li ng-repeat="forecast in weatherFiveDays">
-                {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
-            </li> -->
+        <link rel="stylesheet" href="style.css">
 
-            <li ng-repeat="forecast in weatherNextFour">
-                <div class="next-weather-box">
-                    <h3>{{ forecast.date }}</h3>
-                    <p>{{ forecast.time }}</p> 
-                    <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
-                    <p>{{ forecast.temperature }}</p> 
+        <!-- Angular CDN -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    </head>
+    <body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
+        <div class="center" id="content-div">
+            <div id="current-weather-container">
+                <div id="current-weather-details-div">
+                    <!-- <h3>Enter Location</h3> -->
+                    <div id="location-search">
+                        <input ng-model="location"/>
+                        <!-- <h3 ng-bind="location"></h3> -->
+
+                        <button ng-click="getWeather()">
+                            <img src="assets/images/search.png" width="7%"/>
+                        </button>
+                    </div>
+                    <div>
+                        <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="big-image">
+                        <p>{{ currentWeather.description }}</p>
+                        <p>Wind speed {{ currentWeather.wind }}</p>
+                        <p>Humidity {{ currentWeather.humidity }}</p>
+                    </div>
                 </div>
-            </li>
-        </ul>    
-        <p ng-bind="error"></p>
-    </div>
-    <script src="main.js"></script>
-</body>
+
+                <div id="current-temperature-div">
+                    <h1 id="current-temperature">{{ currentWeather.temperature }}°C</h1>
+                    <div>
+                        <h2 id="min-max">{{ currentWeather.min }}°C / {{ currentWeather.max }}°C</h2>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="no-bullets">
+                <!-- <li ng-repeat="forecast in weatherFiveDays">
+                    {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
+                </li> -->
+
+                <li ng-repeat="forecast in weatherNextFour">
+                    <div class="next-weather-box">
+                        <p>{{ forecast.date }}</p>
+                        <p>{{ forecast.time }}</p> 
+                        <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
+                        <p>{{ forecast.temperature }}</p> 
+                    </div>
+                </li>
+            </ul>    
+            <p ng-bind="error"></p>
+        </div>
+        <script src="main.js"></script>
+    </body>
 </html>

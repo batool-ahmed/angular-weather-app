@@ -19,13 +19,45 @@ ul.no-bullets li {
     display: inline-block;
 }
 
-.content-div {
+#content-div {
     background-color: white;
     opacity: 0.7;
     width: 60%;
-    padding: 0% 3%;
+    padding: 3% 3%;
+    border-radius: 2em;
+    /* display: flex; */
 }
 
 .next-weather-box {
     text-align: center;
+}
+
+#current-weather-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+#current-temperature {
+    font-size: 5em;
+}
+
+#min-max {
+    font-size: 2.2em;   
+}
+
+input {
+    border-width: 0;
+    border-bottom-width: 1px;
+    font-size: 2em;
+    width: 40%;
+}
+
+button {
+    background-color: white;
+    border: none;
+}
+
+#location-search {
+    display: flex;
+    align-items: center;
 }

@@ -17,6 +17,10 @@ app.controller("mainController", function ($scope, $http) {
                 temperature: currentWeather.main.temp,
                 description: currentWeather.weather[0].description,
                 icon: currentWeather.weather[0].icon,
+                wind: currentWeather.wind.speed,
+                max: currentWeather.main.temp_max,
+                min: currentWeather.main.temp_min,
+                humidity: currentWeather.main.humidity
             };
         }).catch(function (error) {
             console.error(error);
@@ -34,7 +38,7 @@ app.controller("mainController", function ($scope, $http) {
                 $scope.weatherNextFour.push(
                     {
                         date: weather[i].dt_txt.slice(0,11),
-                        time: weather[i].dt_txt.slice(11,13),
+                        time: weather[i].dt_txt.slice(11,16),
                         icon: weather[i].weather[0].icon,
                         description: weather[i].weather[0].description,
                         temperature: weather[i].main.temp,

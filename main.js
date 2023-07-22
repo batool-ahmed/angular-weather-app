@@ -34,7 +34,7 @@ app.controller("mainController", function ($scope, $http) {
             $scope.weatherNextFour = [];
             $scope.temperatures = []; 
 
-            for (var i = 2; i < 10; i += 2) {
+            for (var i = 2; i < 11; i += 2) {
                 $scope.weatherNextFour.push(
                     {
                         date: weather[i].dt_txt.slice(0,11),
@@ -47,8 +47,11 @@ app.controller("mainController", function ($scope, $http) {
             }
             console.log($scope.weatherNextFour);
             console.log($scope.temperatures);
+            $scope.error = ''
         }).catch(function (error) {
             $scope.error = 'Enter correct city name';
+            $scope.currentWeather = []
+            $scope.weatherNextFour = []
             console.error(error);
         });
     };

@@ -27,20 +27,29 @@
                     </div>
                     <div>
                         <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="big-image">
-                        <p>{{ currentWeather.description }}</p>
-                        <p>Wind speed {{ currentWeather.wind }}</p>
-                        <p>Humidity {{ currentWeather.humidity }}</p>
+                        <!-- <img src="assets/images/rain.png"  alt="{{ currentWeatherData.description }}" class="current-image" width="20%"> -->
+                        <h2>{{ currentWeather.description }}</h2>
+                        <!-- <p>Wind speed {{ currentWeather.wind }}</p>
+                        <p>Humidity {{ currentWeather.humidity }}</p> -->
                     </div>
                 </div>
 
+
+
                 <div id="current-temperature-div">
-                    <h1 id="current-temperature">{{ currentWeather.temperature }}°C</h1>
-                    <div>
+                    <!-- correct logo spacing -->
+                    <img src="assets/images/logo.png" width="11%" class="float-right"/>
+                    <h1 id="current-temperature" >{{ currentWeather.temperature }}°C</h1>
+                    <!-- <div>
                         <h2 id="min-max">{{ currentWeather.min }}°C / {{ currentWeather.max }}°C</h2>
-                    </div>
+                    </div> -->
+                    <p id="below-temp-row"><span class="red-text">Wind speed</span> {{ currentWeather.wind }} <span class="red-text">Humidity</span> {{ currentWeather.humidity }}</p>
+                    <!-- <p>Humidity {{ currentWeather.humidity }}</p> -->
                 </div>
             </div>
 
+            <h3>Next Few Forecasts</h3>
+            <hr/>
             <ul class="no-bullets">
                 <!-- <li ng-repeat="forecast in weatherFiveDays">
                     {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
@@ -49,9 +58,9 @@
                 <li ng-repeat="forecast in weatherNextFour">
                     <div class="next-weather-box">
                         <p>{{ forecast.date }}</p>
-                        <p>{{ forecast.time }}</p> 
+                        <p class="red-text">{{ forecast.time }}</p> 
                         <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
-                        <p>{{ forecast.temperature }}</p> 
+                        <p>{{ forecast.temperature }}°C</p> 
                     </div>
                 </li>
             </ul>    

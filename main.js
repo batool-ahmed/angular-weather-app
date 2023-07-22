@@ -49,6 +49,7 @@ app.controller("mainController", function ($scope, $http) {
             console.log($scope.temperatures);
             $scope.error = ''
         }).catch(function (error) {
+            // TODO: update error handling
             $scope.error = 'Enter correct city name';
             $scope.currentWeather = []
             $scope.weatherNextFour = []

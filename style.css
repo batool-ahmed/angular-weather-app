@@ -100,3 +100,23 @@ button:hover {
 .current-image {
     margin-top: 2em;
 }
+
+@media screen and (max-width: 768px) {
+    ul.no-bullets {
+        display: flex;
+        flex-direction: column;
+    }
+
+    ul.no-bullets li {
+    display: block;
+    }
+
+    /* #current-weather-container {
+        display: block;
+        margin-top: 10%;
+    } */
+
+    #content-div {
+        margin-top: 400px;
+    }
+}

@@ -21,7 +21,7 @@ This app fetches and displays the weather using https://openweathermap.org/ API.
 ## Design Choices
 - Some of the design choices were inspired by Stellic
     - I added the logo of Stellic on the top right corner
-    - The color of the background and the color of some of the text is a lighter version of the color of the first dot in Stellic's logo
+    - The color of some of the text is a lighter version of the color of the first dot in Stellic's logo
 
 ## Angular Directives used
 - ng-app

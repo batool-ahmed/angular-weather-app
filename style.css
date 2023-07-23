@@ -47,7 +47,7 @@ ul.no-bullets li {
 
 
 #current-temperature {
-    font-size: 5em;
+    font-size: 500%;
 }
 
 #min-max {
@@ -111,12 +111,38 @@ button:hover {
     display: block;
     }
 
-    /* #current-weather-container {
-        display: block;
-        margin-top: 10%;
-    } */
+    #current-weather-container {
+        display: flex; 
+        flex-direction: column; 
+        align-items: center; 
+        text-align: center; 
+    }
 
     #content-div {
         margin-top: 400px;
     }
+
+    #current-weather-details {
+        flex-direction: column;
+    }
+
+    #current-weather-details-div {
+        display: flex;
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    #current-temperature-div {
+        align-items: center; 
+    }
+
+    #current-temperature {
+        font-size: 400%;
+    }
+
+    #upcoming-weather-heading {
+        text-align: center;
+    }
+
 }
+

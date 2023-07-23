@@ -14,8 +14,8 @@
         <!-- Angular CDN -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     </head>
-    <body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
-        <div class="center" id="content-div">
+    <body ng-app="weatherApp" ng-controller="mainController">
+        <div class="center" id="content-div" ng-class="{'content-div-full': showWeather}">
             <div id="current-weather-container">
                 <img src="assets/images/logo.png" width="11%" class="logo-center"/>
                 <div id="current-weather-details-div">
@@ -55,6 +55,9 @@
                 </div>
             </div>
 
+            <i><h2 ng-bind="error" class="red-text" id="error"></h2></i>
+
+
             <div ng-show="showWeather">
                 <h3 id="upcoming-weather-heading">Upcoming Weather Forecasts</h3>
                 <hr/>
@@ -73,7 +76,6 @@
                     </li>
                 </ul>    
             </div>
-            <i><h2 ng-bind="error" class="red-text"></h2></i>
         </div>
         <script src="main.js"></script>
     </body>

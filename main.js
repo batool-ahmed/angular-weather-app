@@ -1,7 +1,7 @@
 var app = angular.module("weatherApp", []);
 
 app.controller("mainController", function ($scope, $http) {
-    $scope.location = 'Karachi';
+    $scope.location = 'Enter Location';
 
     $scope.getWeather = function () {
 
@@ -48,7 +48,7 @@ app.controller("mainController", function ($scope, $http) {
             $scope.showWeather = true
         }).catch(function (error) {
             // TODO: update error handling
-            $scope.error = 'Please enter correct city name';
+            $scope.error = 'Please enter correct location';
             $scope.currentWeather = []
             $scope.weatherNextFive = []
             $scope.showWeather = false

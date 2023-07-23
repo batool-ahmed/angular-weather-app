@@ -22,7 +22,7 @@
                         <!-- <h3 ng-bind="location"></h3> -->
 
                         <button ng-click="getWeather()">
-                            <img src="assets/images/search.png" width="7%"/>
+                            <img src="assets/images/search.png" width="30px"/>
                         </button>
                     </div>
                     
@@ -61,7 +61,7 @@
                     </li> -->
 
                     <li ng-repeat="forecast in weatherNextFour">
-                        <div class="next-weather-box">
+                        <div class="next-weather-box" >
                             <p>{{ forecast.date }}</p>
                             <p class="red-text">{{ forecast.time }}</p> 
                             <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">

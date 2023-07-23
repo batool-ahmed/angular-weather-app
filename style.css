@@ -19,6 +19,7 @@ ul.no-bullets {
     list-style-type: none;
     justify-content: space-between;
     display: flex;
+    margin-left: 0; 
 }
 
 ul.no-bullets li {
@@ -57,7 +58,7 @@ ul.no-bullets li {
 input {
     border-width: 0;
     border-bottom-width: 1px;
-    font-size: 2em;
+    font-size: 200%;    
     width: 70%;
 }
 
@@ -119,7 +120,7 @@ button:hover {
     }
 
     #content-div {
-        margin-top: 400px;
+        margin-top: 500px;
     }
 
     #current-weather-details {
@@ -142,6 +143,15 @@ button:hover {
 
     #upcoming-weather-heading {
         text-align: center;
+    }
+
+    #location-search {
+        justify-content: center;
+        padding-top: 5%;
+    }
+
+    body {
+
     }
 
 }

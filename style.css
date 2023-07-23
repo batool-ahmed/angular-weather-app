@@ -72,6 +72,10 @@ input {
     padding-top: 2%;
 }
 
+input:focus {
+    outline: none;    
+}
+
 button {
     background-color: white;
     border: none;
@@ -199,5 +203,8 @@ button:hover {
 @media screen and (max-height: 300px) {
     #content-div{
         margin-top: 100px;
+    }
+    .content-div-full{
+        margin-top: 800px;
     }
 }

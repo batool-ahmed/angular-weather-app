@@ -89,6 +89,10 @@ button {
     display: inline-flex;
 }
 
+button:focus {
+    outline: none;
+}
+
 button:hover {
     cursor: pointer;
 }
@@ -131,6 +135,7 @@ button:hover {
 .logo-center {
     display: none;
 }
+
 
 /* responsiveness */
 @media screen and (max-width: 900px) {

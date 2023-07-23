@@ -2,6 +2,7 @@ var app = angular.module("weatherApp", []);
 
 app.controller("mainController", function ($scope, $http) {
     $scope.location = '';
+    $scope.showWeather = false;
 
     $scope.getWeather = function () {
         const API_KEY = '4aa6e82d736f430436f7e2e558f8a23b';

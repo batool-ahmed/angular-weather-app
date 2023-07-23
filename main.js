@@ -30,12 +30,11 @@ app.controller("mainController", function ($scope, $http) {
         $http.get(apiCall).then(function (response) {
             const weather = response.data.list;
             console.log(weather)
-            // 4 weather updates after every 6 hours
-            $scope.weatherNextFour = [];
-            $scope.temperatures = []; 
+            // 5 weather updates after every 6 hours
+            $scope.weatherNextFive = [];
 
             for (var i = 2; i < 11; i += 2) {
-                $scope.weatherNextFour.push(
+                $scope.weatherNextFive.push(
                     {
                         date: weather[i].dt_txt.slice(0,11),
                         time: weather[i].dt_txt.slice(11,16),
@@ -43,17 +42,15 @@ app.controller("mainController", function ($scope, $http) {
                         description: weather[i].weather[0].description,
                         temperature: weather[i].main.temp,
                     });
-                $scope.temperatures.push(weather[i].main.temp)
             }
-            console.log($scope.weatherNextFour);
-            console.log($scope.temperatures);
+            console.log($scope.weatherNextFive);
             $scope.error = ''
             $scope.showWeather = true
         }).catch(function (error) {
             // TODO: update error handling
             $scope.error = 'Please enter correct city name';
             $scope.currentWeather = []
-            $scope.weatherNextFour = []
+            $scope.weatherNextFive = []
             $scope.showWeather = false
             console.error(error);
         });

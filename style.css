@@ -1,4 +1,5 @@
 /* TODO: Fix width 50% of right left current temperature */
+/* TODO: change mobile alignment of next weather */
 body{
     background-image: url('assets/images/bg_red.png');
     font-family: sans-serif;
@@ -106,7 +107,7 @@ button:hover {
     display: none;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
     ul.no-bullets {
         display: flex;
         flex-direction: column;
@@ -160,6 +161,10 @@ button:hover {
 
     .logo-center {
         display: block;
+    }
+
+    input {
+        width: 80%;
     }
 
 }

@@ -20,6 +20,7 @@
             <div id="current-weather-container">
                 <img src="assets/images/logo.png" width="11%" class="logo-center"/>
                 <div id="current-weather-details-div">
+                    <!-- Location Search -->
                     <div id="location-search">
                         <input ng-model="location" placeholder="Enter Location"/>
 
@@ -28,7 +29,7 @@
                         </button>
                     </div>
                     
-
+                    <!-- Current Weather -->
                     <div ng-show="showWeather">
                         <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="weather-image">
                         <h2>{{ currentWeather.description }}</h2>
@@ -42,8 +43,10 @@
                 </div>
             </div>
 
+            <!-- Displaying error -->
             <i><h2 ng-bind="error" class="red-text" id="error"></h2></i>
 
+            <!-- Upcoming Weather Forecast -->
             <div ng-show="showWeather">
                 <h3 id="upcoming-weather-heading">Upcoming Weather Forecasts</h3>
                 <hr/>

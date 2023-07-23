@@ -31,7 +31,7 @@
                     
 
                     <div ng-show="showWeather">
-                        <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="big-image">
+                        <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="weather-image">
                         <!-- <img src="assets/images/rain.png"  alt="{{ currentWeatherData.description }}" class="current-image" width="20%"> -->
                         <h2>{{ currentWeather.description }}</h2>
                         <!-- <p>Wind speed {{ currentWeather.wind }}</p>
@@ -50,13 +50,12 @@
                     <!-- <div>
                         <h2 id="min-max">{{ currentWeather.min }}°C / {{ currentWeather.max }}°C</h2>
                     </div> -->
-                    <p id="below-temp-row"><span class="red-text">Wind speed</span> {{ currentWeather.wind }} <span class="red-text">Humidity</span> {{ currentWeather.humidity }}</p>
+                    <p id="below-temp-row"><span class="red-text">Wind speed</span> {{ currentWeather.wind }}kts <span class="red-text">Humidity</span> {{ currentWeather.humidity }}%</p>
                     <!-- <p>Humidity {{ currentWeather.humidity }}</p> -->
                 </div>
             </div>
 
             <i><h2 ng-bind="error" class="red-text" id="error"></h2></i>
-
 
             <div ng-show="showWeather">
                 <h3 id="upcoming-weather-heading">Upcoming Weather Forecasts</h3>

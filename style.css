@@ -102,6 +102,10 @@ button:hover {
     margin-top: 2em;
 }
 
+.logo-center {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     ul.no-bullets {
         display: flex;
@@ -150,8 +154,12 @@ button:hover {
         padding-top: 5%;
     }
 
-    body {
+    .logo-right {
+        display: none;
+    }
 
+    .logo-center {
+        display: block;
     }
 
 }

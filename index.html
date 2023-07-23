@@ -15,6 +15,7 @@
     <body ng-app="weatherApp" ng-controller="mainController" ng-init="getWeather()">
         <div class="center" id="content-div">
             <div id="current-weather-container">
+                <img src="assets/images/logo.png" width="11%" class="logo-center"/>
                 <div id="current-weather-details-div">
                     <!-- <h3>Enter Location</h3> -->
                     <div id="location-search">
@@ -42,7 +43,7 @@
 
                 <div id="current-temperature-div" ng-show="showWeather">
                     <!-- correct logo spacing -->
-                    <img src="assets/images/logo.png" width="11%" class="float-right"/>
+                    <img src="assets/images/logo.png" width="11%" class="float-right logo-right"/>
                     <h1 id="current-temperature" >{{ currentWeather.temperature }}°C</h1>
                     <!-- <div>
                         <h2 id="min-max">{{ currentWeather.min }}°C / {{ currentWeather.max }}°C</h2>

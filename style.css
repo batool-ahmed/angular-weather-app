@@ -15,12 +15,16 @@ h3, h1, h2, h4, h5, h6 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+h2, h1{
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+}
 
 ul.no-bullets {
     list-style-type: none;
     justify-content: space-between;
     display: flex;
-    margin-left: 0; 
+    padding-inline-start: 5px;
 }
 
 ul.no-bullets li {

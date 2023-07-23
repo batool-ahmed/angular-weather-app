@@ -4,14 +4,15 @@ app.controller("mainController", function ($scope, $http) {
     $scope.location = 'Enter Location';
 
     $scope.getWeather = function () {
-
         const API_KEY = '4aa6e82d736f430436f7e2e558f8a23b';
-        var apiCall = "https://api.openweathermap.org/data/2.5/forecast?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
-        var currentWeatherApiCall = "https://api.openweathermap.org/data/2.5/weather?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
+        // current weather API
+        var currentWeatherAPICall = "https://api.openweathermap.org/data/2.5/weather?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
+        // weather forecast for upcoming days API
+        var forecastAPICall = "https://api.openweathermap.org/data/2.5/forecast?q=" + $scope.location + "&appid=" + API_KEY + "&units=metric";
 
-        $http.get(currentWeatherApiCall).then(function (response) {
+        // fetching current weather 
+        $http.get(currentWeatherAPICall).then(function (response) {
             const currentWeather = response.data;
-            console.log(currentWeather);
             
             $scope.currentWeather = {
                 temperature: currentWeather.main.temp,
@@ -26,10 +27,10 @@ app.controller("mainController", function ($scope, $http) {
             console.error(error);
         });
 
-
-        $http.get(apiCall).then(function (response) {
+        // fetching upcoming days' weather forecast
+        $http.get(forecastAPICall).then(function (response) {
             const weather = response.data.list;
-            console.log(weather)
+            
             // 5 weather updates after every 6 hours
             $scope.weatherNextFive = [];
 
@@ -43,11 +44,10 @@ app.controller("mainController", function ($scope, $http) {
                         temperature: weather[i].main.temp,
                     });
             }
-            console.log($scope.weatherNextFive);
             $scope.error = ''
             $scope.showWeather = true
         }).catch(function (error) {
-            // TODO: update error handling
+            // error handling
             $scope.error = 'Please enter correct location';
             $scope.currentWeather = []
             $scope.weatherNextFive = []

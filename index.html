@@ -25,7 +25,9 @@
                             <img src="assets/images/search.png" width="7%"/>
                         </button>
                     </div>
-                    <div>
+                    
+
+                    <div ng-show="showWeather">
                         <img ng-src="https://openweathermap.org/img/w/{{ currentWeather.icon }}.png" alt="{{ currentWeatherData.description }}" class="big-image">
                         <!-- <img src="assets/images/rain.png"  alt="{{ currentWeatherData.description }}" class="current-image" width="20%"> -->
                         <h2>{{ currentWeather.description }}</h2>
@@ -34,9 +36,11 @@
                     </div>
                 </div>
 
+                <!-- <div id="current-temperature-div" ng-hide="showWeather">
+                    <img src="assets/images/logo.png" width="20%" class="float-right"/>
+                </div> -->
 
-
-                <div id="current-temperature-div">
+                <div id="current-temperature-div" ng-show="showWeather">
                     <!-- correct logo spacing -->
                     <img src="assets/images/logo.png" width="11%" class="float-right"/>
                     <h1 id="current-temperature" >{{ currentWeather.temperature }}°C</h1>
@@ -48,23 +52,25 @@
                 </div>
             </div>
 
-            <h3>Next Few Forecasts</h3>
-            <hr/>
-            <ul class="no-bullets">
-                <!-- <li ng-repeat="forecast in weatherFiveDays">
-                    {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
-                </li> -->
+            <div ng-show="showWeather">
+                <h3>Next Few Forecasts</h3>
+                <hr/>
+                <ul class="no-bullets">
+                    <!-- <li ng-repeat="forecast in weatherFiveDays">
+                        {{ forecast.dt_txt }} {{ forecast.main.temp }} {{ forecast.weather[0].description }}
+                    </li> -->
 
-                <li ng-repeat="forecast in weatherNextFour">
-                    <div class="next-weather-box">
-                        <p>{{ forecast.date }}</p>
-                        <p class="red-text">{{ forecast.time }}</p> 
-                        <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
-                        <p>{{ forecast.temperature }}°C</p> 
-                    </div>
-                </li>
-            </ul>    
-            <p ng-bind="error"></p>
+                    <li ng-repeat="forecast in weatherNextFour">
+                        <div class="next-weather-box">
+                            <p>{{ forecast.date }}</p>
+                            <p class="red-text">{{ forecast.time }}</p> 
+                            <img ng-src="https://openweathermap.org/img/w/{{ forecast.icon }}.png" alt="Weather Icon">
+                            <p>{{ forecast.temperature }}°C</p> 
+                        </div>
+                    </li>
+                </ul>    
+            </div>
+            <i><h2 ng-bind="error" class="red-text"></h2></i>
         </div>
         <script src="main.js"></script>
     </body>
